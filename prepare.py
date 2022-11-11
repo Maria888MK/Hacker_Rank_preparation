@@ -17,19 +17,18 @@ def is_leap(year):
 year = int(input())
 print(is_leap(year))
 ###### Second solution #######
-
 def is_leap(year):
     return year % 4 == 0 and (year % 400 == 0 or year % 100 != 0)
 year = int(input())
 print(is_leap(year))
-
 ##################################### Runner- up #######################################################
 """Given the participants' score sheet for your University Sports Day, you are required to find the runner-up score.
 You are given  scores. Store them in a list and find the score of the runner-up."""
-# input:
-# 5
-# 2 3 6 6 5
-# expected output: 5
+"""input:
+5
+2 3 6 6 5
+expected output: 5
+"""
 # if __name__ == '__main__':
 n = int(input())
 arr = set(map(int, input().split()))
@@ -37,7 +36,6 @@ winner = max(arr)
 arr.remove(winner)
 runner_up = max(arr)
 print(runner_up)
-
 ###### Second solution ####### O(N)
 n = int(input())
 a = [int(x) for x in input().split()]
@@ -50,18 +48,53 @@ for x in a:
     elif x > secondlargest and x != largest:
         secondlargest = x
 print(secondlargest)
-
-##################################### Hashing - tuples #######################################################
+##################################### Hashing - tuples #################################################
 """Given an integer, n, and n space-separated integers as input, create a tuple,t , of those n integers. 
-Then compute and print the result of hash(t)."""
-# input:
-# 2
-# 1 2
-# output:
-# 3713081631934410656
+Then compute and print the result of hash(t).
+input:
+2
+1 2
+output:
+3713081631934410656"""
 n = int(input())
 integer_list = map(int, input().split())
 t = tuple(integer_list)
 print(hash(t))
 ###### Second solution #######
 print(input() == 0 or hash(tuple(map(int, input().split()))))
+##################################### Finding the percentage ###########################################
+"""Print the average of the marks array for the student name provided, showing 2 places after the decimal.
+input
+3
+Krishna 67 68 69
+Arjun 70 98 63
+Malika 52 56 60
+Malika
+output
+56.00"""
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    for name, scores in student_marks.items():
+        if name == query_name:
+            average = sum(scores)/len(scores)
+    print("{:0.2f}".format(average))
+###### Second solution ####### O
+from decimal import Decimal
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+query_scores = student_marks[query_name] #Extract the query_scores into a list:
+total_scores = sum(query_scores)
+avg = Decimal(total_scores/3)
+print(round(avg,2))
