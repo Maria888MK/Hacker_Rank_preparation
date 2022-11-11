@@ -30,13 +30,13 @@ You are given  scores. Store them in a list and find the score of the runner-up.
 # 5
 # 2 3 6 6 5
 # expected output: 5
-if __name__ == '__main__':
-    n = int(input())
-    arr = set(map(int, input().split()))
-    winner = max(arr)
-    arr.remove(winner)
-    runner_up = max(arr)
-    print(runner_up)
+# if __name__ == '__main__':
+n = int(input())
+arr = set(map(int, input().split()))
+winner = max(arr)
+arr.remove(winner)
+runner_up = max(arr)
+print(runner_up)
 
 ###### Second solution ####### O(N)
 n = int(input())
@@ -50,3 +50,18 @@ for x in a:
     elif x > secondlargest and x != largest:
         secondlargest = x
 print(secondlargest)
+
+##################################### Hashing - tuples #######################################################
+"""Given an integer, n, and n space-separated integers as input, create a tuple,t , of those n integers. 
+Then compute and print the result of hash(t)."""
+# input:
+# 2
+# 1 2
+# output:
+# 3713081631934410656
+n = int(input())
+integer_list = map(int, input().split())
+t = tuple(integer_list)
+print(hash(t))
+###### Second solution #######
+print(input() == 0 or hash(tuple(map(int, input().split()))))
