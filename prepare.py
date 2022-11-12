@@ -84,7 +84,7 @@ if __name__ == '__main__':
         if name == query_name:
             average = sum(scores)/len(scores)
     print("{:0.2f}".format(average))
-###### Second solution ####### O
+###### Second solution #######
 from decimal import Decimal
 if __name__ == '__main__':
     n = int(input())
@@ -98,3 +98,113 @@ query_scores = student_marks[query_name] #Extract the query_scores into a list:
 total_scores = sum(query_scores)
 avg = Decimal(total_scores/3)
 print(round(avg,2))
+################################# Nested list - second lowest grade ################################
+"""Given the names and grades for each student in a class of  students, 
+store them in a nested list and print the name(s) of any student(s) having the second lowest grade.
+input:
+5
+Harry
+37.21
+Berry
+37.21
+Tina
+37.2
+Akriti
+41
+Harsh
+39
+output:
+Berry
+Harry
+"""
+from operator import itemgetter
+if __name__ == '__main__':
+    records = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        records.append([name, score])
+    lowest = min(records, key=lambda x: x[1])
+    records.remove(lowest) # remove element equal to min
+    min_in_records = min(records,key=itemgetter(1))[1]
+    second_lowest = [x for x in records if x[1] == min_in_records]
+    for i in sorted(second_lowest):
+        print (i[0])
+###### Second solution #######
+if __name__ == '__main__':
+    # Initiate lists
+    name_list = []
+    score_list = []
+    results = []
+
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        name_list.append(name)
+        score_list.append(score)
+        # the second lowest score in the results list
+    for name, score in zip(name_list, score_list):
+        if score == sorted(set(score_list))[1]:
+            results.append(name)
+            # Print the name in the sorted list
+    for result in sorted(results):
+        print(result)
+################################# List - perform commands ##########################################
+"""Initialize your list and read in the value of n followed by n lines of commands where 
+each command will be of the 7 types listed above. Iterate through each command in order 
+and perform the corresponding operation on your list.
+input:
+12
+insert 0 5
+insert 1 10
+insert 0 6
+print
+remove 6
+append 9
+append 1
+sort
+print
+pop
+reverse
+print
+output:
+[6, 5, 10]
+[1, 5, 9, 10]
+[9, 5, 1]
+"""
+if __name__ == '__main__':
+    lst = []
+    N = int(input())
+    for _ in range(N):
+        s=input().strip().split(" ")
+        if s[0]=="insert":
+            lst.insert(int(s[1]),int(s[2]))
+        if s[0]=="print":
+            print(lst)
+        if s[0]=="remove":
+            lst.remove(int(s[1]))
+        if s[0]=="append":
+            lst.append(int(s[1]))
+        if s[0]=="sort":
+            lst.sort()
+        if s[0]=="pop":
+            lst.pop()
+        if s[0]=="reverse":
+            lst.reverse()
+################################# List comprehentions - all possible coordinates ####################
+"""
+input:
+1
+1
+1
+2
+output:
+[[0, 0, 0], [0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1]]
+"""
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    result=[[i,j,k] for i in range(x+1) for j in range(y+1) for k in range(z+1) if (i+j+k)!=n ]
+print(result)
