@@ -91,3 +91,83 @@ if __name__ == '__main__':
         s = input()
         for method in [str.isalnum, str.isalpha, str.isdigit, str.islower, str.isupper]:
             print(any(method(i) for i in s))
+####################################### Text Alignment - logo #######################################
+"""
+You are given a partial code that is used for generating the HackerRank Logo of variable thickness.
+Your task is to replace the blank (______) with rjust, ljust or center.
+input:5
+output:
+   H    
+   HHH   
+  HHHHH  
+ HHHHHHH 
+HHHHHHHHH
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHHHHHHHHHHHHHHHHHHHHHH   
+  HHHHHHHHHHHHHHHHHHHHHHHHH   
+  HHHHHHHHHHHHHHHHHHHHHHHHH   
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+                    HHHHHHHHH 
+                     HHHHHHH  
+                      HHHHH   
+                       HHH    
+                        H 
+"""
+
+thickness = int(input()) #This must be an odd number
+c = 'H'
+
+#Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+
+#Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+
+#Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))
+
+#Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+
+#Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+####################################### Text Wrap  ################################################
+"""
+You are given a string s  and width w.
+Your task is to wrap the string into a paragraph of width  w.
+input:
+ABCDEFGHIJKLIMNOQRSTUVWXYZ
+4
+output:
+ABCD
+EFGH
+IJKL
+IMNO
+QRST
+UVWX
+YZ
+"""
+import textwrap
+
+def wrap(string, max_width):
+    return "\n".join(textwrap.wrap(string, max_width))
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
