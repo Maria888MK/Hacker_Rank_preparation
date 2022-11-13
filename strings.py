@@ -38,8 +38,9 @@ if __name__ == '__main__':
     first_name = input()
     last_name = input()
     print_full_name(first_name, last_name)
-####################################### Find a string ##################################################
-"""the user enters a string and a substring. You have to print the number of times 
+####################################### Find a string ##############################################
+"""
+the user enters a string and a substring. You have to print the number of times 
 that the substring occurs in the given string. String traversal will take place 
 from left to right, not from right to left.
 input:
@@ -64,3 +65,29 @@ if __name__ == '__main__':
 
     count = count_substring(string, sub_string)
     print(count)
+####################################### String Validators ##############################################
+"""
+You are given a string .
+Your task is to find out if the string  contains: alphanumeric characters, alphabetical characters, 
+digits, lowercase and uppercase characters
+input:
+qA2
+Output:
+True
+True
+True
+True
+True
+"""
+if __name__ == '__main__':
+    s = input()
+    print(any(i.isalnum() for i in s))
+    print(any(i.isalpha() for i in s))
+    print(any(i.isdigit() for i in s))
+    print(any(i.islower() for i in s))
+    print(any(i.isupper() for i in s))
+################ Second solution ##################
+    if __name__ == '__main__':
+        s = input()
+        for method in [str.isalnum, str.isalpha, str.isdigit, str.islower, str.isupper]:
+            print(any(method(i) for i in s))
