@@ -263,3 +263,53 @@ def print_formatted(number):
 if __name__ == '__main__':
     n = int(input())
     print_formatted(n)
+####################################### Alphabet Rangoli ##########################################
+"""
+You are given an integer, . Your task is to print an alphabet rangoli of size . (Rangoli is a form 
+of Indian folk art based on creation of patterns.) 
+input:5
+output:
+--------e--------
+------e-d-e------
+----e-d-c-d-e----
+--e-d-c-b-c-d-e--
+e-d-c-b-a-b-c-d-e
+--e-d-c-b-c-d-e--
+----e-d-c-d-e----
+------e-d-e------
+--------e--------
+"""
+import string
+def print_rangoli(size):
+    width = 4 * size - 3
+    alpha = string.ascii_lowercase
+    for i in list(range(size))[::-1] + list(range(1, size)):
+        print('-'.join(alpha[size-1:i:-1] + alpha[i:size]).center(width, '-'))
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
+####################################### Capitalize ##########################################
+"""
+Given a full name, your task is to capitalize the name appropriately.
+input:chris alan
+output:Chris Alan
+"""
+
+# Complete the solve function below.
+def solve(s):
+    s =s.split(" ")
+    result = []
+    for i in s:
+        capitalized = str(i).capitalize()
+        result.append(capitalized)
+    return ' '.join(result)
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = solve(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
