@@ -171,3 +171,95 @@ if __name__ == '__main__':
     string, max_width = input(), int(input())
     result = wrap(string, max_width)
     print(result)
+####################################### Mutations  ################################################
+"""
+Read a given string, change the character at a given index and then print the modified string.
+input:
+abracadabra  
+5 k  
+output:
+abrackdabra
+"""
+############# Solution 1 - convert the string to a list and then change the value ###########
+def mutate_string(string, position, character):
+    l = list(string)
+    l[position]= character
+    string = ''.join(l)
+    return string
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
+######### Solution 2 - slice the string and join it back ################
+def mutate_string(string, position, character):
+    string = string [:position] + character + string[position+1:]
+    return string
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
+####################################### Designer Door Mat  ##########################################
+"""
+Mat size must be N X M. (N is an odd natural number, and M is 3*N times .)
+input: 9 27
+output:
+------------.|.------------
+---------.|..|..|.---------
+------.|..|..|..|..|.------
+---.|..|..|..|..|..|..|.---
+----------WELCOME----------
+---.|..|..|..|..|..|..|.---
+------.|..|..|..|..|.------
+---------.|..|..|.---------
+------------.|.------------
+"""
+N, M = map(int,input().split())
+for i in range(1,N,2):
+    print (('.|.'*i).center(M,'-'))
+print(("WELCOME").center(M,'-'))
+for i in range(N-2,-1,-2):
+    print (('.|.'*i).center(M,'-'))
+####################################### String Formatting  ##########################################
+'''
+Given an integer,n , print the following values for each integer  from  to :
+Decimal
+Octal
+Hexadecimal (capitalized)
+Binary
+input:17
+output:
+    1     1     1     1
+    2     2     2    10
+    3     3     3    11
+    4     4     4   100
+    5     5     5   101
+    6     6     6   110
+    7     7     7   111
+    8    10     8  1000
+    9    11     9  1001
+   10    12     A  1010
+   11    13     B  1011
+   12    14     C  1100
+   13    15     D  1101
+   14    16     E  1110
+   15    17     F  1111
+   16    20    10 10000
+   17    21    11 10001
+'''
+def print_formatted(number):
+
+    w = len(str(bin(number)).replace('0b',''))
+    for i in range(1, number+1):
+        b = bin(int(i)).replace('0b','').rjust(w, ' ')
+        o = oct(int(i)).replace('0o','', 1).rjust(w, ' ')
+        h = hex(int(i)).replace('0x','').upper().rjust(w, ' ')
+        j = str(i).rjust(w, ' ')
+        print (j, o, h, b)
+
+if __name__ == '__main__':
+    n = int(input())
+    print_formatted(n)
