@@ -20,7 +20,7 @@ if __name__ == '__main__':
     arr = list(map(int, input().split()))
     result = average(arr)
     print(result)
-####################################### Symmetric Difference ###########################################################
+####################################### Symmetric Difference ###########################################
 """
 Given 2 sets of integers,  and , print their symmetric difference in ascending order. 
 The term symmetric difference indicates those values that exist in either  or  but do not exist in both.
@@ -45,3 +45,45 @@ all_diff = set(sorted(diff_m.union(diff_n)))
 result = list(sorted(all_diff))
 for i in range(len(result)):
     print(result[i])
+####### second soluution #########
+m =int(input())
+a = set(map(int,input().split()))
+
+n=int(input())
+b=set(map(int,input().split()))
+
+c= sorted((a.difference(b)).union(b.difference(a)))
+for x in c:
+    print(x)
+####################################### Distinct Countries ###########################################
+"""
+Apply your knowledge of the .add() operation to help your friend Rupal.
+Rupal has a huge collection of country stamps. She decided to count the total number of distinct
+ country stamps in her collection. She asked for your help. You pick the stamps one by one from a 
+ stack of  country stamps.Find the total number of distinct country stamps.
+input:
+7
+UK
+China
+USA
+France
+New Zealand
+UK
+France 
+output:
+5
+"""
+n =int(input())
+countries = []
+for i in range(n):
+    countries.append(list(map(str, input().split('\n'))))
+countries = [i[0] for i in countries] #get rid of nested lists
+dist_countries = len(set(countries))
+print(dist_countries)
+####################### Second solution ####################
+n = int(input())
+my_set = set()
+for i in range(n):
+    s = input()
+    my_set.add(s)
+print(len(my_set)
