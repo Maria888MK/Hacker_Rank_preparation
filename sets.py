@@ -20,3 +20,28 @@ if __name__ == '__main__':
     arr = list(map(int, input().split()))
     result = average(arr)
     print(result)
+####################################### Symmetric Difference ###########################################################
+"""
+Given 2 sets of integers,  and , print their symmetric difference in ascending order. 
+The term symmetric difference indicates those values that exist in either  or  but do not exist in both.
+input:
+4           set a size M = 4
+2 4 5 9     a = {2, 4, 5, 9}
+4           set b size N = 4
+2 4 11 12   b = {2, 4, 11, 12}
+output:
+5
+9
+11
+12
+"""
+size_m = int(input())
+m =  set(list(map(int, input().split())))
+size_n = int(input())
+n =  set(list(map(int, input().split())))
+diff_m = set(sorted(m.difference(n)))
+diff_n = set(sorted(n.difference(m)))
+all_diff = set(sorted(diff_m.union(diff_n)))
+result = list(sorted(all_diff))
+for i in range(len(result)):
+    print(result[i])
