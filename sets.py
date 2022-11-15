@@ -87,3 +87,57 @@ for i in range(n):
     s = input()
     my_set.add(s)
 print(len(my_set)
+####################################### input cmd&remove elements ###########################################
+""" 
+You have a non-empty set , and you have to execute  commands given in  lines.
+The commands will be pop, remove and discard.
+input:
+9
+1 2 3 4 5 6 7 8 9
+10
+pop
+remove 9
+discard 9
+discard 8
+remove 7
+pop 
+discard 6
+remove 5
+pop 
+discard 5
+output:
+4
+"""
+n = int(input())
+s = set(map(int, input().split()))
+
+N = int(input())
+
+for i in range(N):
+    command = input().split()
+    if 'pop' in command:
+        s.pop()
+    elif 'remove' in command:
+        s.remove(int(command[-1]))
+    elif 'discard' in command:
+        s.discard(int(command[-1]))
+        
+    
+print(sum(s))
+####################################### union ###########################################
+"""
+The students of District College have subscriptions to English and French newspapers.
+Some students have subscribed only to English, some have subscribed to only French 
+and some have subscribed to both newspapers.
+You are given two sets of student roll numbers. One set has subscribed to the English
+newspaper, and the other set is subscribed to the French newspaper. 
+The same student could be in both sets. Your task is to find the total number of
+students who have subscribed to at least one newspaper.
+input:
+9
+1 2 3 4 5 6 7 8 9
+9
+10 1 2 3 11 21 55 6 8
+output:
+13
+"""
