@@ -124,7 +124,7 @@ for i in range(N):
         
     
 print(sum(s))
-####################################### union ###########################################
+####################################### union section ###########################################
 """
 The students of District College have subscriptions to English and French newspapers.
 Some students have subscribed only to English, some have subscribed to only French 
@@ -141,3 +141,18 @@ input:
 output:
 13
 """
+n_eng = int(input())
+eng =set(map(int,input().split()))
+b_fr = int(input())
+fr =set(map(int,input().split()))
+result = eng.union(fr)
+print(len(result))
+
+####################################### inter section ###########################################
+""" task is the same as above """
+n = int(input())
+n_eng = set(map(int, input().split()))
+b = int(input())
+b_fr = set(map(int, input().split()))
+result = n_eng.intersection(b_fr)
+print(len(result))
