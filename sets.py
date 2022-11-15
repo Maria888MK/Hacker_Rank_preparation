@@ -180,3 +180,53 @@ b = int(input())
 b_fr = set(map(int, input().split()))
 result = n_eng.symmetric_difference(b_fr)
 print(len(result))
+####################################### set mutation ###################################################
+""" 
+You are given a set A and N number of other sets. These N number of sets have to perform some specific 
+mutation operations on set A.
+Your task is to execute those operations and print the sum of elements from set A.
+input:
+ 16
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 24 52
+ 4
+ intersection_update 10
+ 2 3 5 6 8 9 1 4 7 11
+ update 2
+ 55 66
+ symmetric_difference_update 5
+ 22 7 35 62 58
+ difference_update 7
+ 11 22 35 55 58 62 66
+ output:
+ 38
+"""     
+length_set1 = int(input())
+A =  set(map(int, input().split()))
+length_set2 = int(input())
+try:
+    for i in range(length_set2):
+        cmd = input().split()
+        if 'intersection_update'in cmd:
+            length_iu = int(cmd[-1])
+            B = set(map(int, input().split()))
+            result = A.intersection_update(B)
+        elif 'update'in cmd:
+            length_u = int(cmd[-1])
+            C = set(map(int, input().split()))
+            result = A.update(C)
+        elif 'symmetric_difference_update'in cmd:
+            length_sdu = int(cmd[-1])
+            D = set(map(int, input().split()))
+            result = A.symmetric_difference_update(D)
+
+        elif 'difference_update' in cmd:
+            length_du = int(cmd[-1]) 
+            E = set(map(int, input().split()))
+            result = A.difference_update(E) 
+            
+    print(sum(A))        
+
+    
+    
+except EOFError as e:
+    print(end="")    
