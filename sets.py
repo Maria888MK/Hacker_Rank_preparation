@@ -149,10 +149,34 @@ result = eng.union(fr)
 print(len(result))
 
 ####################################### inter section ###########################################
-""" task is the same as above """
+""" task descriptionis the same as above 
+ur task is to find the total number of students who have subscribed to both newspapers.
+"""
 n = int(input())
 n_eng = set(map(int, input().split()))
 b = int(input())
 b_fr = set(map(int, input().split()))
 result = n_eng.intersection(b_fr)
+print(len(result))
+####################################### difference ###########################################
+""" task description is the same as above
+ Your task is to find the total number of students who have subscribed to only English newspapers.
+
+"""
+n = int(input())
+n_eng = set(map(int, input().split()))
+b = int(input())
+b_fr = set(map(int, input().split()))
+result = n_eng.difference(b_fr)
+print(len(result))
+####################################### symmetric difference ###########################################
+""" task description is the same as above
+Your task is to find the total number of students who have subscribed to either the English
+or the French newspaper but not both.
+"""    
+n = int(input())
+n_eng = set(map(int, input().split()))
+b = int(input())
+b_fr = set(map(int, input().split()))
+result = n_eng.symmetric_difference(b_fr)
 print(len(result))
