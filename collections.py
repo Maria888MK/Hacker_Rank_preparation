@@ -118,3 +118,62 @@ for i in range(N):
         purchased_items[item_name] = int(price)
 for item in purchased_items:
     print(item, purchased_items[item])
+########################################### Collections.namedtuple() ################################################
+"""Your task is to help Dr. Wesley calculate the average marks of the students.
+Note:
+1. Columns can be in any order. IDs, marks, class and name can be written in any order in the spreadsheet.
+2. Column names are ID, MARKS, CLASS and NAME. (The spelling and case type of these names won't change.)
+input:
+5
+ID         MARKS      NAME       CLASS     
+1          97         Raymond    7         
+2          50         Steven     4         
+3          91         Adrian     9         
+4          72         Stewart    5         
+5          80         Peter      6 
+output:
+78.00
+"""
+from collections import namedtuple
+n = int(input())
+Student_marks = namedtuple('Student_marks', input().split())
+sum = 0
+for i in range(n):
+    s = Student_marks(*input().split())
+    sum += int(s.MARKS)
+print("{:.2f}".format(sum/n)) #round  to 2 decimal places.
+########################################### Collections.deque() ################################################
+"""
+Perform append, pop, popleft and appendleft methods on an empty deque d.
+input:
+6
+append 1
+append 2
+append 3
+appendleft 4
+pop
+popleft
+output:
+1 2
+"""
+from collections import deque
+N = int(input())
+d = deque()
+for _ in range(N):
+    cmd = input().strip().split(" ")
+    if cmd[0]== 'append':
+        d.append(int(cmd[1]))
+    if cmd [0] == 'appendleft':
+        d.appendleft(cmd[1])
+    if cmd[0] == 'pop':
+        d.pop()
+    if cmd[0] == 'popleft':
+        d.popleft()
+print(' '.join(map(str, d))) #printout without []
+########################## Second solution ########################
+from collections import deque
+d = deque()
+for _ in range(int(input())):
+    cmd, *args = input().split()
+    getattr(d, cmd)(*args)
+[print(x, end=' ') for x in d]
