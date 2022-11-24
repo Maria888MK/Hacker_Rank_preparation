@@ -17,3 +17,16 @@ class Solution:
         for i in range(1, len(nums)):
             res[i] = res[i-1] + nums[i]
         return res
+# 1672. Richest Customer Wealth https://leetcode.com/problems/richest-customer-wealth/
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        maxwealth = 0
+        
+        for customer in accounts:
+            cur_customer_wealth = 0
+            for bank in customer:
+                cur_customer_wealth+= bank
+                
+            maxwealth = max(maxwealth, cur_customer_wealth )
+        return maxwealth
+                
