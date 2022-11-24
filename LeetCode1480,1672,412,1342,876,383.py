@@ -61,6 +61,13 @@ class Solution:
                 
         return count
  # Time complexity O(logn), space complexity O(1) n- number of steps
+# Approach 2: Counting Bits complexity is the same
+def numberOfSteps (self, num: int) -> int:
+    binary = bin(num)[2:] #Remove the "0b" off the start with splice.
+    ones = binary.count("1")
+    total = len(binary)
+    return ones + total - 1
+
                 
             
 
