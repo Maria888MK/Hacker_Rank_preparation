@@ -46,3 +46,22 @@ class Solution:
                 res.append(str(i))
         return res
 # Time complexity O(n), space Complexity O(1)- we don't create another data structure, operate only on input
+# 1342. Number of Steps to Reduce a Number to Zero
+class Solution:
+    def numberOfSteps(self, num: int) -> int:
+        count = 0
+        while num > 0:            
+            if num %2 == 0:
+                num = num / 2
+                count +=1
+            elif num % 2 !=0:
+                obtain_odd = num -1
+                num = num -1
+                count +=1
+                
+        return count
+ # Time complexity O(logn), space complexity O(1)
+                
+            
+
+
