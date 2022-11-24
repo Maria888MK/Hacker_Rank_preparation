@@ -9,7 +9,7 @@ class Solution:
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         return [sum(nums[ : i + 1]) for i in range(len(nums))]
-Method#3: Using For loop and list indexing 
+Method#3: Using For loop and list indexing O(n)
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         res = [0]*len(nums)
@@ -31,3 +31,18 @@ class Solution:
         return maxwealth
 # Time complexities O(n x m) n- customers, m-banks
 # Space complexity O(1) - we don't create another data structure
+# 412. Fizz Buzz https://leetcode.com/problems/fizz-buzz/
+class Solution:
+    def fizzBuzz(self, n: int) -> List[str]:
+        res = []
+        for i in range(1, n+1):
+            if (i%3 == 0) and (i%5 ==0):
+                res.append('FizzBuzz')
+            elif i%3 ==0:
+                res.append('Fizz')
+            elif i%5 ==0:
+                res.append('Buzz')
+            else:
+                res.append(str(i))
+        return res
+# Time complexity O(n), space Complexity O(1)- we don't create another data structure, operate only on input
