@@ -60,7 +60,7 @@ class Solution:
                 count +=1
                 
         return count
- # Time complexity O(logn), space complexity O(1)
+ # Time complexity O(logn), space complexity O(1) n- number of steps
                 
             
 
