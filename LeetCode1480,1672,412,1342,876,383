@@ -29,4 +29,5 @@ class Solution:
                 
             maxwealth = max(maxwealth, cur_customer_wealth )
         return maxwealth
-                
+# Time complexities O(n x m) n- customers, m-banks
+# Space complexity O(1) - we don't create another data structure
