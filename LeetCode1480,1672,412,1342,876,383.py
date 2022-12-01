@@ -67,6 +67,19 @@ def numberOfSteps (self, num: int) -> int:
     ones = binary.count("1")
     total = len(binary)
     return ones + total - 1
+# 876. Middle of the Linked List https://leetcode.com/problems/middle-of-the-linked-list/
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        temp = head
+        count = 0  # for get the length of linked list
+        while temp:
+            count +=1
+            temp = temp.next
+        middle_index= count//2
+        for i in range(0,middle_index):
+            head = head.next
+        return head
+        
 
                 
             
