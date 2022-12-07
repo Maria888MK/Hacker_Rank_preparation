@@ -1,9 +1,0 @@
-#   Find Numbers with Even Number of Digits
-class Solution:
-    def findNumbers(self, nums: List[int]) -> int:
-        even_nb = 0
-        for i in range(len(nums)):
-            number= len(str(nums[i]))
-            if number %2==0:
-                even_nb +=1
-        return even_nb
