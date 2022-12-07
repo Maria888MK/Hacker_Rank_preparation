@@ -98,7 +98,27 @@ class Solution:
             
             dict[char] -= 1
         return True
+# Solution 2 (Hash method)
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        mag = Counter(magazine) # counting hashable objects
+        for i in ransomNote:
+            if mag[i]==0: # character isn't in dictionary
+                return False
+            else:
+                mag[i] -=1 
+        return True
+  # Solution 3 using replace
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        for i in range(0, len(ransomNote)):
+            if ransomNote[i] in magazine:
+                magazine = magazine.replace(ransomNote[i],'',1) # 1 -replace only one occurrence
+            else:
+                return False
 
+        return True
+        
                 
             
 
