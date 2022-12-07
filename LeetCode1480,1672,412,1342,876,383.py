@@ -79,7 +79,25 @@ class Solution:
         for i in range(0,middle_index):
             head = head.next
         return head
-        
+#   383. Ransom Note https://leetcode.com/problems/ransom-note/
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        if len(ransomNote)> len(magazine):
+            return False
+        dict = {}
+        for i in magazine:
+            if i in dict:
+                dict[i]+=1
+            else:
+                dict[i] = 1
+        for char in ransomNote:
+            if char not in dict:
+                return False
+            if dict[char]==0:
+                return False
+            
+            dict[char] -= 1
+        return True
 
                 
             
