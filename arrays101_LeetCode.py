@@ -13,3 +13,19 @@ class Solution:
         result = [i*i for i in nums]
         result.sort()
         return result
+#    Duplicate Zeros https://leetcode.com/explore/learn/card/fun-with-arrays/525/inserting-items-into-an-array/3245/
+  class Solution(object):
+    def duplicateZeros(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: None Do not return anything, modify arr in-place instead.
+        """
+        i = 0
+        while i< len(arr):
+            if arr[i]==0:
+                # arr[i:i]=0
+                arr.insert(i,0)
+                arr.pop()
+                i +=2
+            else:
+                i +=1
