@@ -29,3 +29,29 @@ class Solution:
                 i +=2
             else:
                 i +=1
+# Merge Sorted Arrays https://leetcode.com/explore/learn/card/fun-with-arrays/525/inserting-items-into-an-array/3253/
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        """
+        :type nums1: List[int]
+        :type m: int
+        :type nums2: List[int]
+        :type n: int
+        :rtype: None Do not return anything, modify nums1 in-place instead.
+        """
+        
+        nums1 = nums1+nums2
+        for i in range(len(nums1)):
+            if 0 in nums1:
+                nums1.remove(0)
+            already_sorted = True  # Bubble Sort
+
+            for j in range(len(nums1) - i - 1):
+                if nums1[j] > nums1[j + 1]:
+                    nums1[j], nums1[j + 1] = nums1[j + 1], nums1[j]
+                    already_sorted = False
+
+            if already_sorted:
+                break
+
+        print(nums1)
