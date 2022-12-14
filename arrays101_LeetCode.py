@@ -66,4 +66,22 @@ class Solution(object):
         nums1.sort
         # time complexity O(n+m)log(n+m)
         # space complexity O(n)
+       # Two pointers approach
+     class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        nums1_copy = nums1[:m] # copy all the elements of list
+        # pointers for two arrays:nums1_copy and nums2 
+        p1 = 0
+        p2 = 0
+        for i in range(n+m):
+            if p2>=n or (p1<m and nums1_copy[p1]<=nums2[p2]):
+                nums1[i] = nums1_copy[p1]
+                p1 +=1
+            else:
+                nums1[i] = nums2[p2]
+                p2 +=1 # Time complexity O(n+m)
+                # Space complexity O(m)
     
